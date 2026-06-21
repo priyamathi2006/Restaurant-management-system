@@ -14,9 +14,11 @@ import AdminDashboard from "./pages/AdminDashboard";
 import KitchenDashboard from "./pages/KitchenDashboard";
 import DeliveryDashboard from "./pages/DeliveryDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { useSelector } from "react-redux";
 
 export default function App() {
   const [cartOpen, setCartOpen] = useState(false);
+  const { isAuthenticated } = useSelector((state) => state.auth);
 
   useEffect(() => {
     const handleOpenCart = () => setCartOpen(true);
@@ -37,7 +39,7 @@ export default function App() {
         <main className="flex-grow">
           <Routes>
             {/* Public Customer Routes */}
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={isAuthenticated ? <Home /> : <Navigate to="/login" replace />} />
             <Route path="/menu" element={<Menu />} />
             <Route path="/reservation" element={<Reservation />} />
             <Route path="/login" element={<Login />} />
