@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-darkBg text-textLight font-sans antialiased overflow-x-hidden;
+    background-image: radial-gradient(circle at 10% 20%, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 1) 90%);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-semibold text-textLight;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-darkCard/80 backdrop-blur-md border border-slate-700/50 rounded-2xl;
+  }
+
+  .glass-card {
+    @apply bg-darkCard/40 backdrop-blur-sm border border-slate-700/30 rounded-2xl hover:border-accentAmber/50 hover:bg-darkCard/60 transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-accentAmber to-accentOrange text-white font-medium py-2.5 px-5 rounded-xl hover:shadow-glow hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer;
+  }
+
+  .btn-secondary {
+    @apply bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium py-2.5 px-5 rounded-xl border border-slate-700 hover:border-slate-500 active:scale-[0.98] transition-all duration-200 cursor-pointer;
+  }
+
+  .btn-success {
+    @apply bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-medium py-2.5 px-5 rounded-xl hover:shadow-glowGreen hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer;
+  }
+
+  .input-field {
+    @apply w-full bg-slate-900/60 border border-slate-700 rounded-xl py-2.5 px-4 text-textLight focus:outline-none focus:border-accentAmber/80 focus:ring-1 focus:ring-accentAmber/80 transition-all duration-200;
+  }
+
+  .glow-text {
+    text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b;
+}
+
+/* Custom visual delivery path keyframes */
+@keyframes dash {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.map-path {
+  stroke-dasharray: 8;
+  animation: dash 2s linear infinite;
+}
