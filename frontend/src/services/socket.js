@@ -4,7 +4,7 @@ let socket;
 
 export const connectSocket = (userId, role) => {
   if (!socket) {
-    socket = io(import.meta.env.VITE_SOCKET_URL || "http://localhost:5001");
+    socket = io(import.meta.env.VITE_SOCKET_URL || "http://10.101.73.97:5001");
     console.log("Websocket connected to backend");
 
     if (userId) {
