@@ -4,7 +4,7 @@ let socket;
 
 export const connectSocket = (userId, role) => {
   if (!socket) {
-    socket = io(import.meta.env.VITE_SOCKET_URL || "http://10.101.73.97:5001");
+    socket = io(import.meta.env.VITE_SOCKET_URL || "https://restaurant-management-system-2-kbv1.onrender.com");
     console.log("Websocket connected to backend");
 
     if (userId) {

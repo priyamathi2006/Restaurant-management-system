@@ -1,4 +1,4 @@
-const BASE_URL = import.meta.env.VITE_API_URL || "http://10.101.73.97:5001/api";
+const BASE_URL = import.meta.env.VITE_API_URL || "https://restaurant-management-system-2-kbv1.onrender.com/api";
 
 const getHeaders = () => {
   const headers = {
