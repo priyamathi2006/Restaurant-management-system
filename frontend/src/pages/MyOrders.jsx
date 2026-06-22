@@ -49,11 +49,11 @@ export default function MyOrders() {
     <div className="max-w-4xl mx-auto px-4 py-12 space-y-8 text-left">
       <div className="space-y-2">
         <h1 className="text-3xl font-extrabold font-heading">My Orders</h1>
-        <p className="text-textGray text-sm">Review your dining and delivery history, verify payment summaries, or track current active orders.</p>
+        <p className="text-slate-600 text-sm">Review your dining and delivery history, verify payment summaries, or track current active orders.</p>
       </div>
 
       {loading ? (
-        <div className="h-60 flex items-center justify-center text-textGray">
+        <div className="h-60 flex items-center justify-center text-slate-600">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-accentAmber mr-3"></div>
           Fetching your orders history...
         </div>
@@ -73,7 +73,7 @@ export default function MyOrders() {
           {orders.map((order) => (
             <div 
               key={order._id}
-              className="bg-slate-900/60 border border-slate-800 rounded-2xl p-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-5 hover:border-slate-700 transition-all"
+              className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-5 hover:border-slate-700 transition-all"
             >
               <div className="space-y-1.5 flex-1">
                 <div className="flex flex-wrap items-center gap-3">

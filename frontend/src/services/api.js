@@ -11,13 +11,27 @@ const getHeaders = () => {
   return headers;
 };
 
+const handleResponse = async (response, endpoint) => {
+  if (
+    response.status === 401 && 
+    !endpoint.includes("/auth/login") && 
+    !endpoint.includes("/auth/register")
+  ) {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    window.location.href = "/login";
+    return { success: false, message: "Session expired. Redirecting to login..." };
+  }
+  return response.json();
+};
+
 export const api = {
   get: async (endpoint) => {
     const response = await fetch(`${BASE_URL}${endpoint}`, {
       method: "GET",
       headers: getHeaders(),
     });
-    return response.json();
+    return handleResponse(response, endpoint);
   },
 
   post: async (endpoint, data) => {
@@ -26,7 +40,7 @@ export const api = {
       headers: getHeaders(),
       body: JSON.stringify(data),
     });
-    return response.json();
+    return handleResponse(response, endpoint);
   },
 
   put: async (endpoint, data) => {
@@ -35,7 +49,7 @@ export const api = {
       headers: getHeaders(),
       body: JSON.stringify(data),
     });
-    return response.json();
+    return handleResponse(response, endpoint);
   },
 
   delete: async (endpoint) => {
@@ -43,6 +57,7 @@ export const api = {
       method: "DELETE",
       headers: getHeaders(),
     });
-    return response.json();
+    return handleResponse(response, endpoint);
   },
 };
+

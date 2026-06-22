@@ -4,22 +4,29 @@
 
 @layer base {
   body {
-    @apply bg-darkBg text-textLight font-sans antialiased overflow-x-hidden;
-    background-image: radial-gradient(circle at 10% 20%, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 1) 90%);
+    background-color: #F8F8F5;
+    @apply text-slate-800 font-sans antialiased overflow-x-hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-semibold text-textLight;
+    @apply font-heading font-semibold text-[#111111];
+  }
+
+  /* Maintain white/light headings inside dark cards, panels, and footer */
+  .glass-panel h1, .glass-panel h2, .glass-panel h3, .glass-panel h4, .glass-panel h5, .glass-panel h6,
+  .glass-card h1, .glass-card h2, .glass-card h3, .glass-card h4, .glass-card h5, .glass-card h6,
+  footer h1, footer h2, footer h3, footer h4, footer h5, footer h6 {
+    @apply text-[#f8fafc];
   }
 }
 
 @layer components {
   .glass-panel {
-    @apply bg-darkCard/80 backdrop-blur-md border border-slate-700/50 rounded-2xl;
+    @apply bg-darkCard backdrop-blur-md border border-slate-800/80 rounded-2xl shadow-xl;
   }
 
   .glass-card {
-    @apply bg-darkCard/40 backdrop-blur-sm border border-slate-700/30 rounded-2xl hover:border-accentAmber/50 hover:bg-darkCard/60 transition-all duration-300;
+    @apply bg-darkCard backdrop-blur-sm border border-slate-800/60 rounded-2xl hover:border-accentAmber/45 hover:bg-slate-800 transition-all duration-300;
   }
 
   .btn-primary {
@@ -35,7 +42,7 @@
   }
 
   .input-field {
-    @apply w-full bg-slate-900/60 border border-slate-700 rounded-xl py-2.5 px-4 text-textLight focus:outline-none focus:border-accentAmber/80 focus:ring-1 focus:ring-accentAmber/80 transition-all duration-200;
+    @apply w-full bg-slate-950 border border-slate-800 rounded-xl py-2.5 px-4 text-textLight focus:outline-none focus:border-accentAmber/80 focus:ring-1 focus:ring-accentAmber/80 transition-all duration-200;
   }
 
   .glow-text {
@@ -50,11 +57,11 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #0f172a;
+  background: #F8F8F5;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: #cbd5e1;
   border-radius: 4px;
 }
 

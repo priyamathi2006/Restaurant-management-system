@@ -127,7 +127,7 @@ export default function CartModal({ isOpen, onClose }) {
               items.map((item) => (
                 <div 
                   key={item.foodId}
-                  className="flex items-center gap-4 bg-slate-950/40 p-3 rounded-xl border border-slate-800/80"
+                  className="flex items-center gap-4 bg-slate-950 p-3 rounded-xl border border-slate-800/80"
                 >
                   <img 
                     src={item.image} 
@@ -242,7 +242,7 @@ export default function CartModal({ isOpen, onClose }) {
                         className={`py-2 px-3 border rounded-xl text-xs font-medium transition-all ${
                           paymentMethod === method
                             ? "bg-accentAmber/10 border-accentAmber text-accentAmber"
-                            : "bg-slate-950/40 border-slate-800 text-textGray hover:bg-slate-900"
+                            : "bg-slate-950 border-slate-800 text-textGray hover:bg-slate-900"
                         }`}
                       >
                         {method === "COD" ? "Cash on Delivery" : method}

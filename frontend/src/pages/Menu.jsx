@@ -124,7 +124,7 @@ export default function Menu() {
             placeholder="Search for dishes..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="input-field pl-11 text-sm py-3 focus:ring-accentAmber/30 focus:border-accentAmber/60 bg-slate-900/40 backdrop-blur-sm border-slate-800"
+            className="input-field pl-11 text-sm py-3 focus:ring-accentAmber/30 focus:border-accentAmber/60 bg-slate-900 backdrop-blur-sm border-slate-800"
           />
           <Search className="absolute left-4 top-3.5 h-4.5 w-4.5 text-slate-500" />
         </div>
@@ -250,7 +250,7 @@ export default function Menu() {
       )}
 
       {/* Category Tabs */}
-      <div className="flex border-b border-slate-850 overflow-x-auto no-scrollbar scroll-smooth">
+      <div className="flex border-b border-slate-200 overflow-x-auto no-scrollbar scroll-smooth">
         {categories.map((cat) => (
           <button
             key={cat}
@@ -258,7 +258,7 @@ export default function Menu() {
             className={`py-4 px-6 font-heading font-medium text-sm border-b-2 whitespace-nowrap shrink-0 transition-all cursor-pointer ${
               category === cat
                 ? "border-accentAmber text-accentAmber font-bold"
-                : "border-transparent text-textGray hover:text-textLight hover:border-slate-755"
+                : "border-transparent text-slate-900 font-semibold hover:text-accentAmber hover:border-slate-300"
             }`}
           >
             {cat}
@@ -268,7 +268,7 @@ export default function Menu() {
 
       {/* Menu Grid */}
       {loading ? (
-        <div className="h-60 flex items-center justify-center text-textGray">
+        <div className="h-60 flex items-center justify-center text-slate-600">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-accentAmber mr-3"></div>
           Loading culinary menu...
         </div>
@@ -357,7 +357,7 @@ export default function Menu() {
 
                 {/* Review Form (Only for logged in Customers) */}
                 {isAuthenticated && user?.role === "Customer" && (
-                  <form onSubmit={handleReviewSubmit} className="space-y-3 bg-slate-950/40 p-3 rounded-xl border border-slate-850">
+                  <form onSubmit={handleReviewSubmit} className="space-y-3 bg-slate-950 p-3 rounded-xl border border-slate-850">
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-semibold text-textGray">Your Rating:</span>
                       <div className="flex gap-1">
